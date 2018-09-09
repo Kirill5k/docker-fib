@@ -1,8 +1,8 @@
 Multi-Container Application based on Express and React libraries.
 
-<p>
-    <img src="images/architecture1.png" width="350" title="architecture 1">
-</p>
-<p>
-    <img src="images/architecture2.png" width="250" alt="architecture 2">
-</p>
+<div>
+    <img src="./images/architecture1.PNG" width="550" title="architecture 1">
+</div>
+<div>
+    <img src="images/architecture2.PNG" width="450" alt="architecture 2">
+</div>
