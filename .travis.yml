@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kirill1/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run kirill1/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t kirill1/fib-nginx ./nginx
+  - docker build -t kirill1/fib-client ./client
+  - docker build -t kirill1/fib-worker ./worker
+  - docker build -t kirill1/fib-server ./server
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+
+  - docker push kirill1/fib-nginx
+  - docker push kirill1/fib-client
+  - docker push kirill1/fib-server
+  - docker push kirill1/fib-worker
+
