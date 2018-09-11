@@ -14,7 +14,7 @@ after_success:
   - docker build -t kirill1/fib-worker ./worker
   - docker build -t kirill1/fib-server ./server
 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push kirill1/fib-nginx
   - docker push kirill1/fib-client
