@@ -21,3 +21,15 @@ after_success:
   - docker push kirill1/fib-server
   - docker push kirill1/fib-worker
 
+deploy:
+  provider: elasticbeanstalk
+  regions: eu-west-2
+  app: docker-fib
+  env: DockerFib-env
+  bucket_name: elasticbeanstalk-eu-west-2-777520768008
+  bucket_path: docker-fib
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
